@@ -31,8 +31,8 @@ mainterm : [[synoniemen], {pmid : score}, categorie]}<br>
 
 
 <h3><b>Technische gegevens structuur (ERD)</b></h3>
-<h4><ins>Datatypen veranderingen:</ins></h4>
-<h5><b>In de entiteit "pubmed_article"</b><br>
+<h4>Datatypen veranderingen:</h4>
+<h5><b><ins>In de entiteit "pubmed_article"</ins></b><br>
 -Het datatype van publication_date is veranderd van DATE naar VARCHAR2 (xxx). De reden hiervoor is dat het javascript en de html de datum meenemen als string. het is dus niet nodig dit een apart datum datatype mee te geven. Bovendien zorgde dit voor problemen, omdat het niet goed doorkwam in de JSON, waar date steeds "null" werd. Tenslotte slaat elk artikel de datum anders op (may-2018, 2018, 2-5-2018, 2-may-2018 etc.) Waardoor er ook weer problemen ontstaan. Een String/VARCHAR2 neemt gewoon over wat er geschreven staat. De gebruiker (de bioloog) kan dit altijd interpreteren.<br>
 <b><ins>In de entiteit "link"</ins></b><br>
 -"Relation_score" is veranderd van FLOAT(5) naar INTEGER. Dit omdat de score altijd gehele getallen zijn<br>
