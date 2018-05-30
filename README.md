@@ -48,11 +48,17 @@ mainterm : [[synoniemen], {pmid : score}, categorie]}<br>
 -De score ofwel hitcount wordt op een andere plek opgeslagen, namelijk in de tussentabel "nodeXarticle" ipv "keyword". Dit is omdat de score gelinkt is aan een bepaald artikel, zodat de artikelen ook gesorteerd kunnen worden. De hitcount/score van het woord in kan berekend worden door simpelweg al die scores bij elkaar op te tellen.</h5>
 
 <h4>Attributen veranderingen</h4>
-<h5><span style="text-decoration: underline;">In de entiteit "type"</span><br>
+<h5><u>In de entiteit "type"</u><br>
 - naam attribuut "classificatie" veranderd naar "classification". Om alles consistent in het Engels te zetten.<br>
-<span style="text-decoration: underline;">In de entiteit "node"</span><<br>
+<u>In de entiteit "node"</u><br>
 -"node_id" is veranderd naar "mainterm". Dit zijn de namen van de nodes, die al uniek moeten zijn in onze applicatie.<br>
-<span style="text-decoration: underline;">In de entiteit "keyword"</span><br>
+<u>In de entiteit "keyword"</u><br>
 - Er is een attribuut verwijderd, namelijk "hitcount". Dit omdat de score op een andere plek opgeslagen wordt, namelijk in de tussentabel "nodeXarticle". de totale score van een node wordt nu berekend door alle scores bij elkaar op te tellen. De score opgeslagen in "nodeXarticle" is nu de score per artikel, zodat ze ook makkelijker op volgorde opgeslagen kunnen worden.</h5>
+
+<style>
+u { 
+    text-decoration: underline;
+}
+</style>
 
 
