@@ -1,7 +1,6 @@
-# readme-check
 <h1>Readme voor de Praktijkdocent Bio-Informatica</h1>
 
-BATMAN:
+<h3>BATMAN:</h3>
 Biomedical Article Text Mining ApplicatioN<br>
 Een webapplicatie voor textmining in biomedische artikelen voor de onderzoeksvraag van het BioCentre<br>
 
@@ -13,14 +12,14 @@ Jonathan Feenstra, Fini De Gruyter, Alex Janse & Alex Thijs Weenink 2018.
 
 <h2>Afwijkingen van het analyse/ontwerp met argumentatie:</h2>
 
-<h3><b>Systeemarchitectuur</b></h3><br>
+<h3><b>Systeemarchitectuur</b></h3>
 <h4>- Er is geen gebruik gemaakt van de NLTK library. In plaats daarvan hebben we de synoniemen van NCBI zelf gebruikt en die uit de XML file gehaald.</h4>
 <h4>- De modules "Webpagina genereren" en "Graaf genereren" worden ook uitgevoerd op de cytosine.nl server, al is het nog wel steeds mogelijk om de webpagina te genereren op de desktop van de gebruiker, alleen kan er dan geen textmining uitgevoerd worden.</h4>
 <h4>- De module "Text mining" maakt nu ook gebruik van de library numpy en matplotlib. Dit is onder andere gebruikt om te voorspellen hoelang elk keyword nodig had om de resultaten op te halen. Hierbij is gebruik gemaakt van numpy '1.13.1' en matplotlib '2.0.2'.</h4>
 
 
 
-<h3><b>Software-architectuur (Class diagram)</b></h3><br>
+<h3><b>Software-architectuur (Class diagram)</b></h3>
 <h4>- De App.py in de "htmlPython" library bevat nu meer pagina's. Er is een contact pagina toegevoegd op de website en het bestand heet "contact.html".<br>
 - De objecten die doorgestuurd worden van "textmining" naar de "databank" zijn veranderd. Er wordt nog steeds gebruik gemaakt van dictionaries, maar dan in de volgende formats:<br>
 mainterm : [[synoniemen], {pmid : score}, categorie]}<br>
@@ -31,7 +30,7 @@ mainterm : [[synoniemen], {pmid : score}, categorie]}<br>
 - Classes van "textmining" maken geen gebruik meer van NLTK, zoals vermeld in de commentbox.</h4>
 
 
-<h3><b>Technische gegevens structuur (ERD)</b></h3><br>
+<h3><b>Technische gegevens structuur (ERD)</b></h3>
 <h4>Datatypen veranderingen:</h4>
 <h5><b>In de entiteit "pubmed_article"</b><br>
 -Het datatype van publication_date is veranderd van DATE naar VARCHAR2 (xxx). De reden hiervoor is dat het javascript en de html de datum meenemen als string. het is dus niet nodig dit een apart datum datatype mee te geven. Bovendien zorgde dit voor problemen, omdat het niet goed doorkwam in de JSON, waar date steeds "null" werd. Tenslotte slaat elk artikel de datum anders op (may-2018, 2018, 2-5-2018, 2-may-2018 etc.) Waardoor er ook weer problemen ontstaan. Een String/VARCHAR2 neemt gewoon over wat er geschreven staat. De gebruiker (de bioloog) kan dit altijd interpreteren.<br>
