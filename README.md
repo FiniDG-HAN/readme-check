@@ -2,4 +2,4 @@
 
 [a relative link](README_Thijn.md)
 
-![Alt text](static/img/helpfigure1.png?raw=true "Title")
+![Alt text](static/img/batmanlogo.png?raw=true "Title")
