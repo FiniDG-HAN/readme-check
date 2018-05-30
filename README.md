@@ -34,23 +34,20 @@ mainterm : [[synoniemen], {pmid : score}, categorie]}<br>
 <h4>Datatypen veranderingen:</h4>
 <h5><b>In de entiteit "pubmed_article"</b><br>
 -Het datatype van publication_date is veranderd van DATE naar VARCHAR2 (xxx). De reden hiervoor is dat het javascript en de html de datum meenemen als string. het is dus niet nodig dit een apart datum datatype mee te geven. Bovendien zorgde dit voor problemen, omdat het niet goed doorkwam in de JSON, waar date steeds "null" werd. Tenslotte slaat elk artikel de datum anders op (may-2018, 2018, 2-5-2018, 2-may-2018 etc.) Waardoor er ook weer problemen ontstaan. Een String/VARCHAR2 neemt gewoon over wat er geschreven staat. De gebruiker (de bioloog) kan dit altijd interpreteren.<br>
-
-
 <b>In de entiteit "link"</b><br>
 -"Relation_score" is veranderd van FLOAT(5) naar INTEGER. Dit omdat de score altijd gehele getallen zijn<br>
-
 <b>In de entiteit "node"</b><br>
 -"node_id" is veranderd naar "mainterm". De datatype is veranderd van INTEGER naar VARCHAR2. Dit omdat nu niet meer gebruik gemaakt wordt van een ID als primary key, maar de nodenaam, die volgens de applicatie allen uniek moeten zijn.</h5>
 
 
 
-<h4>Structuur veranderingen</h4><br>
+<h4>Structuur veranderingen</h4>
 <h5>- De opbouw van het ERD is wat veranderd. Eerst was de entiteit "pubmed_article" gelinkt aan "node" door middel van een tussentabel (veel-op-veel relatie). Nu is "pubmed_article" gelinkt aan "keyword" met een tussentabel. De reden hiervoor is de manier van opslaan van de data, zodat hij ook logisch/makkelijk getoond kan worden in de graaf. links (edges) en nodes hebben PubMed artikelen gekoppeld, maar in eerste instantie zijn natuurlijk alle artikelen gekoppeld aan een keyword. Onze text mining script koppelt namelijk artikelen per keyword, en vergelijkt ze later tussen andere keywords.<br>
 - De entiteit "type" was eerst gekoppeld aan de entiteit "keyword", maar nu gekoppeld aan "node". De reden hiervoor is, omdat de graaf de nodes een type meekrijgen (organism, health_effect, compound). Een node kan meerdere keywords hebben door de synoniemen. Op deze manier is de typedata gemakkelijker te verwerken in de graaf.<br>
 - De namen van de tussentabellen zijn veranderd van "Relation_1" en "Relation_2" naar "nodeXarticle" en "nodeXlink". Dit is gedaan om de relaties een duidelijkere naam te geven. Het geeft nu precies aan tussen welke entiteiten er een link is.<br>
 -De score ofwel hitcount wordt op een andere plek opgeslagen, namelijk in de tussentabel "nodeXarticle" ipv "keyword". Dit is omdat de score gelinkt is aan een bepaald artikel, zodat de artikelen ook gesorteerd kunnen worden. De hitcount/score van het woord in kan berekend worden door simpelweg al die scores bij elkaar op te tellen.</h5>
 
-<h4>Attributen veranderingen</h4><br>
+<h4>Attributen veranderingen</h4>
 <h5><b>In de entiteit "type"</b><br>
 - naam attribuut "classificatie" veranderd naar "classification". Om alles consistent in het Engels te zetten.<br>
 <b>In de entiteit "node"</b><br>
