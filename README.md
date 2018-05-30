@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
 <h1>Readme voor de Praktijkdocent Bio-Informatica</h1>
 
 <h3>BATMAN:</h3>
@@ -60,5 +65,7 @@ u {
     text-decoration: underline;
 }
 </style>
+</body>
+</html>
 
 
