@@ -1,3 +1,3 @@
 #readme-check
 
-[a relative link](README.html)
+[a relative link](README_Thijn.md)
